@@ -1,0 +1,8 @@
+# The usual
+.DS_Store
+.sass-cache/
+
+# Don't bundle any compiled css & test files
+test.scss
+*.css
+*.html
