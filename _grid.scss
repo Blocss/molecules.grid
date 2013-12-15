@@ -1,0 +1,183 @@
+/*! blocss-grid v1.0.0 | MIT License | github.com/Blocss */
+
+/*----------------------------------------------------------------------------*\
+    $GRID
+    Fluid and nestable grid system
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Example usage:
+ *
+<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--gutterless]">
+    <div class="grid__cell  u-3-12  u-1-1--palm"></div>
+    <div class="grid__cell  u-3-12  u-1-1--palm"></div>
+    <div class="grid__cell  u-3-12  u-1-1--palm"></div>
+    <div class="grid__cell  grid__cell--center  u-3-12  u-1-1--palm"></div>
+</div>
+ */
+
+// Module can be disabled by switching `$use-grid` to `false`
+$use-grid:                      true                                !default;
+
+// Defines the gutter between grid items, multiplies by `$space` found in Blocss
+$grid-gutter-multiplier:        1                                   !default;
+
+/**
+ * Dont’t modify the following variables
+ */
+$gutter:                        ($space*$grid-gutter-multiplier);
+
+
+
+/*  Grid Core
+\*----------------------------------------------------------------------------*/
+
+@if $use-grid == true {
+/**
+ * Grid container
+ * Must only contain `.grid` or `.grid__cell` components as children.
+ *
+ * 1. Remove inter-unit whitespace that appears between `inline-block` child
+ *    elements.
+ * 2. Adjustment for child element margins.
+ * 3. Use lists as grid
+ * 4. Ensure consistent default alignment
+ */
+.grid {
+    text-rendering: optimizespeed; /* 1 */
+    font-size: 0; /* 1 */
+    @include rem(margin-left, -($gutter)); /* 2 */
+    padding: 0;
+    list-style: none; /* 3 */
+    text-align: left; /* 4 */
+}
+
+
+/**
+ * Child `grid` object adjustments
+ * Used for more complex fixed-fluid hybrid grids.
+ */
+.grid > .grid {
+    overflow: hidden;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+    /**
+     * Grid cells
+     * No explicit width by default. Apply `.unit-x-y` classes.
+     *
+     * 1. Fundamentals of the non-float grid layout mechanism.
+     * 2. Apply grid gutter.
+     * 3. Controls vertical positioning of units.
+     * 4. Keeps content correctly aligned with the grid direction.
+     * 5. Reset text defaults.
+     */
+    .grid__cell {
+        @include rem(padding-left, $gutter);
+        display: inline-block; /* 1 */
+        width: 100%;
+        margin: 0;
+        vertical-align: top; /* 3 */
+        text-align: left; /* 4 */
+        @include font-size($base-font-size); /* 5 */
+    }
+
+
+    /**
+     * Modifier: horizontally center one unit
+     * Set a specific unit to be horizontally centered. Doesn't affect
+     * any other units. Can still contain a child `grid` object.
+     */
+    .grid__cell--center {
+        display: block;
+        margin: 0 auto;
+    }
+
+
+/**
+ * Modifier: Reverse grid direction
+ */
+.grid--rev {
+    direction: rtl;
+
+    > .grid__cell {
+        direction: ltr;
+    }
+}
+
+
+/**
+ * Modifyer: Grid align right
+ */
+.grid--right {
+    text-align: right;
+}
+
+
+/**
+ * Modifier: horizontally center all grid units
+ * Allows for automatic unit centering irrespective of the number of
+ * units in the grid.
+ */
+.grid--center {
+    text-align: center;
+
+    > .grid__cell {
+        text-align: left;
+    }
+}
+
+
+/**
+ * Modifier: align grid cells vertically
+ */
+.grid--middle {
+    > .grid__cell {
+        vertical-align: middle;
+    }
+}
+.grid--bottom {
+    > .grid__cell {
+        vertical-align: bottom;
+    }
+}
+
+
+/**
+ * Create grids with narrower gutters. Extends `.grid`.
+ */
+.grid--narrow {
+    @include rem(margin-left, -($gutter / 2));
+
+    > .grid__cell {
+        @include rem(padding-left, ($gutter / 2));
+    }
+}
+
+
+/**
+ * Create grids with wider gutters. Extends `.grid`.
+ */
+.grid--wide {
+    @include rem(margin-left, -($gutter * 2));
+
+    > .grid__cell {
+        @include rem(padding-left, ($gutter * 2));
+    }
+}
+
+
+/**
+ * Modifier: Remove gutters between columns
+ */
+.grid--gutterless {
+    margin: 0;
+
+    > .grid__cell {
+        padding: 0;
+    }
+}
+
+} // use-grid
