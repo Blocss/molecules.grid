@@ -60,7 +60,7 @@ cells.
 * Safari 5+
 * Internet Explorer 8+
 
-NOTE: Some Android stock browsers refuse to apply a `font-size` lower than 8px, and thus break the layout due to the spacing between `grid__cells`. If you want to support these browsers you have to comment-out the whitespace in the markup:
+NOTE: Some Android stock browsers refuse to apply a `font-size` of 0, instead they render a 8px font size and thus break the layout due to the spacing between `grid__cells`. If you want to support these browsers you have to comment-out the whitespace in the markup:
 ```html
 <div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--gutterless]">
     <div class="grid__cell  u-3-12  u-1-1--palm"></div><!--
