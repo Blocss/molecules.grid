@@ -8,7 +8,7 @@
 /**
  * Example usage:
  *
-<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--gutterless]">
+<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--flush]">
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
@@ -26,6 +26,18 @@ $grid-gutter-multiplier:        1                                   !default;
  * Dont’t modify the following variables
  */
 $gutter:                        ($space*$grid-gutter-multiplier);
+
+
+/**
+ * Enable/disable modifiers
+ */
+$enable-grid-rev:               true                                !default;
+$enable-grid-right:             true                                !default;
+$enable-grid-center:            true                                !default;
+$enable-grid-middle:            true                                !default;
+$enable-grid-narrow:            true                                !default;
+$enable-grid-wide:              true                                !default;
+$enable-grid-flush:             true                                !default;
 
 
 
@@ -96,88 +108,119 @@ $gutter:                        ($space*$grid-gutter-multiplier);
     }
 
 
-/**
- * Modifier: Reverse grid direction
- */
-.grid--rev {
-    direction: rtl;
+@if $enable-grid-rev == true {
 
-    > .grid__cell {
-        direction: ltr;
+    /**
+     * Modifier: Reverse grid direction
+     */
+    .grid--rev {
+        direction: rtl;
+
+        > .grid__cell {
+            direction: ltr;
+        }
     }
+
 }
 
 
-/**
- * Modifyer: Grid align right
- */
-.grid--right {
-    text-align: right;
+@if $enable-grid-right == true {
+
+    /**
+     * Modifyer: Grid align right
+     */
+    .grid--right {
+        text-align: right;
+    }
+
 }
 
 
-/**
- * Modifier: horizontally center all grid units
- * Allows for automatic unit centering irrespective of the number of
- * units in the grid.
- */
-.grid--center {
-    text-align: center;
+@if $enable-grid-center == true {
 
-    > .grid__cell {
-        text-align: left;
+    /**
+     * Modifier: horizontally center all grid units
+     * Allows for automatic unit centering irrespective of the number of
+     * units in the grid.
+     */
+    .grid--center {
+        text-align: center;
+
+        > .grid__cell {
+            text-align: left;
+        }
     }
+
 }
 
 
-/**
- * Modifier: align grid cells vertically
- */
-.grid--middle {
-    > .grid__cell {
-        vertical-align: middle;
-    }
-}
-.grid--bottom {
-    > .grid__cell {
-        vertical-align: bottom;
-    }
-}
+@if $enable-grid-middle == true {
 
-
-/**
- * Create grids with narrower gutters. Extends `.grid`.
- */
-.grid--narrow {
-    @include rem(margin-left, -($gutter / 2));
-
-    > .grid__cell {
-        @include rem(padding-left, ($gutter / 2));
+    /**
+     * Modifier: align grid cells vertically
+     */
+    .grid--middle {
+        > .grid__cell {
+            vertical-align: middle;
+        }
     }
+    .grid--bottom {
+        > .grid__cell {
+            vertical-align: bottom;
+        }
+    }
+
 }
 
 
-/**
- * Create grids with wider gutters. Extends `.grid`.
- */
-.grid--wide {
-    @include rem(margin-left, -($gutter * 2));
+@if $enable-grid-narrow == true {
 
-    > .grid__cell {
-        @include rem(padding-left, ($gutter * 2));
+    /**
+     * Create grids with narrower gutters. Extends `.grid`.
+     */
+    .grid--narrow {
+        @include rem(margin-left, -($gutter / 2));
+
+        > .grid__cell {
+            @include rem(padding-left, ($gutter / 2));
+        }
     }
+
 }
 
 
-/**
- * Modifier: Remove gutters between columns
- */
-.grid--gutterless {
-    margin: 0;
+@if $enable-grid-wide == true {
 
-    > .grid__cell {
-        padding: 0;
+    /**
+     * Create grids with wider gutters. Extends `.grid`.
+     */
+    .grid--wide {
+        @include rem(margin-left, -($gutter * 2));
+
+        > .grid__cell {
+            @include rem(padding-left, ($gutter * 2));
+        }
     }
+
+}
+
+
+@if $enable-grid-flush == true {
+
+    /**
+     * Modifier: Remove gutters between columns
+     * Tags: ^deprecated
+     * `.grid--gutterless` modifier is deprecated and will be removed in v1.1.0
+     */
+    .grid--flush,
+    .grid--gutterless {
+        margin: 0;
+
+        > .grid__cell {
+            padding: 0;
+        }
+    }
+
 }
 
 } // use-grid

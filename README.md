@@ -3,7 +3,7 @@
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
 
-N.B. This component relies on particular dimensions being applied to cells in
+**N.B.** This component relies on particular dimensions being applied to cells in
 the grid via other classes. For example the [Blocss dimensions](https://github.com/Blocss/dimensions/) extension.
 
 Read more about [Blocss](https://blocss.github.io/blocss).
@@ -34,7 +34,7 @@ Read more about [Blocss](https://blocss.github.io/blocss).
 * `grid--bottom`: bottom-align all child `.grid__cell`
 * `grid--narrow`: narrow the gutter by half
 * `grid--wide`: widen the gutter by half
-* `grid--gutterless`: no gutter
+* `grid--flush`: no gutter
 * `.grid__cell`: a child cell of `.grid` that wraps grid content
 * `.grid__cell--center`: center align a single cell
 
@@ -44,7 +44,7 @@ A simple grid is easy to create. A grid container can have any number of child
 cells.
 
 ```html
-<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--gutterless]">
+<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--flush]">
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
     <div class="grid__cell  u-3-12  u-1-1--palm"></div>
@@ -62,7 +62,7 @@ cells.
 
 NOTE: Some Android stock browsers refuse to apply a `font-size` of 0, instead they render a 8px font size and thus break the layout due to the spacing between `grid__cells`. If you want to support these browsers you have to comment-out the whitespace in the markup:
 ```html
-<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--gutterless]">
+<div class="grid  [grid--center|grid--right|grid--rev|grid--middle|grid--bottom|grid--narrow|grid--wide|grid--flush]">
     <div class="grid__cell  u-3-12  u-1-1--palm"></div><!--
     --><div class="grid__cell  u-3-12  u-1-1--palm"></div><!--
     --><div class="grid__cell  u-3-12  u-1-1--palm"></div><!--
