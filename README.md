@@ -1,4 +1,4 @@
-# Blocss Grid – v1.0.0
+# Blocss Grid – v1.0.1
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
@@ -51,6 +51,12 @@ cells.
     <div class="grid__cell  grid__cell--center  u-3-12  u-1-1--palm"></div>
 </div>
 ```
+You can switch off modifiers you arent using by setting the `$enable-grid-[modifier-name]` to `false`, e.g. `$enable-grid-flush: false;`.
+
+## Deprecated
+All the api calls which are deprecated:
+
+* `.grid--gutterless` is renamed to `.grid--flush`, but will keep working till `v1.1.0`
 
 ## Browser support
 
