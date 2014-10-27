@@ -1,5 +1,9 @@
 == HEAD
 
+== 1.0.2 (Oct 27, 2014)
+
+* remove non-utf 8 quotes
+
 == 1.0.1 (Apr 28, 2014)
 
 * Enable more control over the code outputted by the module by using a variable for every modifier
