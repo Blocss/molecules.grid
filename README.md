@@ -1,4 +1,4 @@
-# Blocss Grid – v1.0.2
+# Blocss Grid – v1.0.3
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
