@@ -1,4 +1,4 @@
-# Blocss Grid – v1.0.3
+# Blocss Grid – v1.1.0
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
@@ -38,6 +38,19 @@ Read more about [Blocss](https://blocss.github.io/blocss).
 * `.grid__cell`: a child cell of `.grid` that wraps grid content
 * `.grid__cell--center`: center align a single cell
 
+## Available settings
+
+* `$blocss-grid-namespace` - Prefixes classes with a namespace, defaults to `$blocss-namespace`
+* `$blocss-use-grid` - Enables/disables entire grid code, defaults to `true`
+* `$blocss-grid-gutter` - Defines gutter width, defaults to `$blocss-space`
+* `$blocss-enable-grid-rev` - Enables/disables reverse grid mode, defaults to `false`
+* `$blocss-enable-grid-right` - Enables/disables right alignment mode, defaults to `false`
+* `$blocss-enable-grid-center` - Enables/disables center alignment mode, defaults to `false`
+* `$blocss-enable-grid-middle` - Enables/disables middle alignment mode, defaults to `false`
+* `$blocss-enable-grid-narrow` - Enables/disables narrow gutter option, defaults to `false`
+* `$blocss-enable-grid-wide` - Enables/disables wide gutter option, defaults to `false`
+* `$blocss-enable-grid-flush` - Enables/disables no gutter option, defaults to `false`
+
 ## Use
 
 A simple grid is easy to create. A grid container can have any number of child
@@ -51,12 +64,9 @@ cells.
     <div class="grid__cell  grid__cell--center  u-3-12  u-1-1--palm"></div>
 </div>
 ```
-You can switch off modifiers you arent using by setting the `$enable-grid-[modifier-name]` to `false`, e.g. `$enable-grid-flush: false;`.
 
 ## Deprecated
-All the api calls which are deprecated:
-
-* `.grid--gutterless` is renamed to `.grid--flush`, but will keep working till `v1.1.0`
+All the api calls which are deprecated: none
 
 ## Browser support
 

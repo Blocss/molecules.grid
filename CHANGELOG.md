@@ -1,5 +1,9 @@
 == HEAD
 
+== 1.1.0 (Apr 9, 2015)
+
+* Let code comply with new blocss version
+
 == 1.0.3 (Oct 27, 2014)
 
 * added utf-8 header
