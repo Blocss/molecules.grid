@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! blocss-grid v1.0.3 | MIT License | github.com/Blocss */
+/*! blocss-grid v1.1.0 | MIT License | github.com/Blocss */
 
 /*----------------------------------------------------------------------------*\
     $GRID
@@ -17,7 +17,14 @@
 </div>
  */
 
-// Module can be disabled by switching `$blocss-use-grid` to `false`
+/**
+ * Namespacing
+ */
+$blocss-grid-namespace: $blocss-namespace !default;
+
+/**
+ * Module can be disabled by switching `$blocss-use-grid` to `false`
+ */
 $blocss-use-grid: true !default;
 
 /**
@@ -53,24 +60,13 @@ $blocss-enable-grid-flush: false !default;
  * 3. Use lists as grid
  * 4. Ensure consistent default alignment
  */
-.grid {
+.#{$blocss-grid-namespace}grid {
     text-rendering: optimizespeed; /* 1 */
     font-size: 0; /* 1 */
     @include rem(margin-left, -($blocss-grid-gutter)); /* 2 */
     padding: 0;
     list-style: none; /* 3 */
     text-align: left; /* 4 */
-}
-
-
-/**
- * Child `grid` object adjustments
- * Used for more complex fixed-fluid hybrid grids.
- */
-.grid > .grid {
-    overflow: hidden;
-    margin-right: 0;
-    margin-left: 0;
 }
 
 
@@ -84,7 +80,7 @@ $blocss-enable-grid-flush: false !default;
      * 4. Keeps content correctly aligned with the grid direction.
      * 5. Reset text defaults.
      */
-    .grid__cell {
+    .#{$blocss-grid-namespace}grid__cell {
         @include rem(padding-left, $blocss-grid-gutter);
         display: inline-block; /* 1 */
         width: 100%;
@@ -100,7 +96,7 @@ $blocss-enable-grid-flush: false !default;
      * Set a specific unit to be horizontally centered. Doesn't affect
      * any other units. Can still contain a child `grid` object.
      */
-    .grid__cell--center {
+    .#{$blocss-grid-namespace}grid__cell--center {
         display: block;
         margin: 0 auto;
     }
@@ -111,10 +107,10 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Modifier: Reverse grid direction
      */
-    .grid--rev {
+    .#{$blocss-grid-namespace}grid--rev {
         direction: rtl;
 
-        > .grid__cell {
+        > .#{$blocss-grid-namespace}grid__cell {
             direction: ltr;
         }
     }
@@ -127,7 +123,7 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Modifyer: Grid align right
      */
-    .grid--right {
+    .#{$blocss-grid-namespace}grid--right {
         text-align: right;
     }
 
@@ -141,10 +137,10 @@ $blocss-enable-grid-flush: false !default;
      * Allows for automatic unit centering irrespective of the number of
      * units in the grid.
      */
-    .grid--center {
+    .#{$blocss-grid-namespace}grid--center {
         text-align: center;
 
-        > .grid__cell {
+        > .#{$blocss-grid-namespace}grid__cell {
             text-align: left;
         }
     }
@@ -157,13 +153,13 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Modifier: align grid cells vertically
      */
-    .grid--middle {
-        > .grid__cell {
+    .#{$blocss-grid-namespace}grid--middle {
+        > .#{$blocss-grid-namespace}grid__cell {
             vertical-align: middle;
         }
     }
-    .grid--bottom {
-        > .grid__cell {
+    .#{$blocss-grid-namespace}grid--bottom {
+        > .#{$blocss-grid-namespace}grid__cell {
             vertical-align: bottom;
         }
     }
@@ -176,10 +172,10 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Create grids with narrower gutters. Extends `.grid`.
      */
-    .grid--narrow {
+    .#{$blocss-grid-namespace}grid--narrow {
         @include rem(margin-left, -($blocss-grid-gutter / 2));
 
-        > .grid__cell {
+        > .#{$blocss-grid-namespace}grid__cell {
             @include rem(padding-left, ($blocss-grid-gutter / 2));
         }
     }
@@ -192,10 +188,10 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Create grids with wider gutters. Extends `.grid`.
      */
-    .grid--wide {
+    .#{$blocss-grid-namespace}grid--wide {
         @include rem(margin-left, -($blocss-grid-gutter * 2));
 
-        > .grid__cell {
+        > .#{$blocss-grid-namespace}grid__cell {
             @include rem(padding-left, ($blocss-grid-gutter * 2));
         }
     }
@@ -208,10 +204,10 @@ $blocss-enable-grid-flush: false !default;
     /**
      * Modifier: Remove gutters between columns
      */
-    .grid--flush {
+    .#{$blocss-grid-namespace}grid--flush {
         margin: 0;
 
-        > .grid__cell {
+        > .#{$blocss-grid-namespace}grid__cell {
             padding: 0;
         }
     }
