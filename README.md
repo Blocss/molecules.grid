@@ -1,4 +1,4 @@
-# Blocss Grid – v1.0.3
+# Blocss Grid – v1.1.0
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
@@ -40,6 +40,7 @@ Read more about [Blocss](https://blocss.github.io/blocss).
 
 ## Available settings
 
+* `$blocss-grid-namespace` - Prefixes classes with a namespace, defaults to `$blocss-namespace`
 * `$blocss-use-grid` - Enables/disables entire grid code, defaults to `true`
 * `$blocss-grid-gutter` - Defines gutter width, defaults to `$blocss-space`
 * `$blocss-enable-grid-rev` - Enables/disables reverse grid mode, defaults to `false`
