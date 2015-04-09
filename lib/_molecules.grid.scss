@@ -17,35 +17,32 @@
 </div>
  */
 
-// Module can be disabled by switching `$use-grid` to `false`
-$use-grid:                      true                                !default;
-
-// Defines the gutter between grid items, multiplies by `$space` found in Blocss
-$grid-gutter-multiplier:        1                                   !default;
+// Module can be disabled by switching `$blocss-use-grid` to `false`
+$blocss-use-grid: true !default;
 
 /**
  * Dont't modify the following variables
  */
-$gutter:                        ($space*$grid-gutter-multiplier);
+$blocss-grid-gutter: $blocss-space;
 
 
 /**
  * Enable/disable modifiers
  */
-$enable-grid-rev:               true                                !default;
-$enable-grid-right:             true                                !default;
-$enable-grid-center:            true                                !default;
-$enable-grid-middle:            true                                !default;
-$enable-grid-narrow:            true                                !default;
-$enable-grid-wide:              true                                !default;
-$enable-grid-flush:             true                                !default;
+$blocss-enable-grid-rev: false !default;
+$blocss-enable-grid-right: false !default;
+$blocss-enable-grid-center: false !default;
+$blocss-enable-grid-middle: false !default;
+$blocss-enable-grid-narrow: false !default;
+$blocss-enable-grid-wide: false !default;
+$blocss-enable-grid-flush: false !default;
 
 
 
 /*  Grid Core
 \*----------------------------------------------------------------------------*/
 
-@if $use-grid == true {
+@if $blocss-use-grid == true {
 /**
  * Grid container
  * Must only contain `.grid` or `.grid__cell` components as children.
@@ -59,7 +56,7 @@ $enable-grid-flush:             true                                !default;
 .grid {
     text-rendering: optimizespeed; /* 1 */
     font-size: 0; /* 1 */
-    @include rem(margin-left, -($gutter)); /* 2 */
+    @include rem(margin-left, -($blocss-grid-gutter)); /* 2 */
     padding: 0;
     list-style: none; /* 3 */
     text-align: left; /* 4 */
@@ -88,13 +85,13 @@ $enable-grid-flush:             true                                !default;
      * 5. Reset text defaults.
      */
     .grid__cell {
-        @include rem(padding-left, $gutter);
+        @include rem(padding-left, $blocss-grid-gutter);
         display: inline-block; /* 1 */
         width: 100%;
         margin: 0;
         vertical-align: top; /* 3 */
         text-align: left; /* 4 */
-        @include font-size($base-font-size); /* 5 */
+        @include font-size($blocss-base-font-size, false); /* 5 */
     }
 
 
@@ -109,7 +106,7 @@ $enable-grid-flush:             true                                !default;
     }
 
 
-@if $enable-grid-rev == true {
+@if $blocss-enable-grid-rev == true {
 
     /**
      * Modifier: Reverse grid direction
@@ -125,7 +122,7 @@ $enable-grid-flush:             true                                !default;
 }
 
 
-@if $enable-grid-right == true {
+@if $blocss-enable-grid-right == true {
 
     /**
      * Modifyer: Grid align right
@@ -137,7 +134,7 @@ $enable-grid-flush:             true                                !default;
 }
 
 
-@if $enable-grid-center == true {
+@if $blocss-enable-grid-center == true {
 
     /**
      * Modifier: horizontally center all grid units
@@ -155,7 +152,7 @@ $enable-grid-flush:             true                                !default;
 }
 
 
-@if $enable-grid-middle == true {
+@if $blocss-enable-grid-middle == true {
 
     /**
      * Modifier: align grid cells vertically
@@ -174,47 +171,44 @@ $enable-grid-flush:             true                                !default;
 }
 
 
-@if $enable-grid-narrow == true {
+@if $blocss-enable-grid-narrow == true {
 
     /**
      * Create grids with narrower gutters. Extends `.grid`.
      */
     .grid--narrow {
-        @include rem(margin-left, -($gutter / 2));
+        @include rem(margin-left, -($blocss-grid-gutter / 2));
 
         > .grid__cell {
-            @include rem(padding-left, ($gutter / 2));
+            @include rem(padding-left, ($blocss-grid-gutter / 2));
         }
     }
 
 }
 
 
-@if $enable-grid-wide == true {
+@if $blocss-enable-grid-wide == true {
 
     /**
      * Create grids with wider gutters. Extends `.grid`.
      */
     .grid--wide {
-        @include rem(margin-left, -($gutter * 2));
+        @include rem(margin-left, -($blocss-grid-gutter * 2));
 
         > .grid__cell {
-            @include rem(padding-left, ($gutter * 2));
+            @include rem(padding-left, ($blocss-grid-gutter * 2));
         }
     }
 
 }
 
 
-@if $enable-grid-flush == true {
+@if $blocss-enable-grid-flush == true {
 
     /**
      * Modifier: Remove gutters between columns
-     * Tags: ^deprecated
-     * `.grid--gutterless` modifier is deprecated and will be removed in v1.1.0
      */
-    .grid--flush,
-    .grid--gutterless {
+    .grid--flush {
         margin: 0;
 
         > .grid__cell {
