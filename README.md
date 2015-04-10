@@ -1,4 +1,4 @@
-# Blocss Grid – v1.1.0
+# Blocss Grid – v1.1.1
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
@@ -10,9 +10,7 @@ Read more about [Blocss](https://blocss.github.io/blocss).
 
 ## Installation
 
-* [Bower](http://bower.io/): `bower install --save blocss-grid`
-* Download: [zip](https://github.com/Blocss/grid/zipball/master)
-* Git: `git clone https://github.com/Blocss/grid`
+    $ bower install --save blocss-grid
 
 ## Features
 
