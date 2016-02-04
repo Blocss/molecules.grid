@@ -205,7 +205,7 @@ $blocss-enable-grid-flush: false !default;
      * Modifier: Remove gutters between columns
      */
     .#{$blocss-grid-namespace}grid--flush {
-        margin: 0;
+        margin-left: 0;
 
         > .#{$blocss-grid-namespace}grid__cell {
             padding: 0;
