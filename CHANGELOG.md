@@ -1,5 +1,9 @@
 == HEAD
 
+== 1.1.2 (Feb 4, 2016)
+
+* Grid flush resets all margins while it only should reset margin-left
+
 == 1.1.0 (Apr 9, 2015)
 
 * Let code comply with new blocss version
