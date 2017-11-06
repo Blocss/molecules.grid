@@ -1,4 +1,6 @@
-# Blocss Grid – v1.1.2
+# Blocss Grid – v1.1.2 - Deprecated
+
+**This module has been moved to: ([https://github.com/Blocss/blocss](https://github.com/Blocss/blocss))**
 
 A [Blocss](https://github.com/Blocss/blocss/) component for a CSS grid. The grid makes use of `inline-block` and
 `box-sizing` to provide features that float-based layouts cannot.
